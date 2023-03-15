@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="73*"/>
+            <ColumnDefinition Width="208*"/>
+            <ColumnDefinition Width="519*"/>
+        </Grid.ColumnDefinitions>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="#FF3456DC" Offset="1"/>
@@ -15,31 +20,21 @@
                 <GradientStop Color="#FF244BE8" Offset="0.823"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <InkCanvas x:Name="inkCanvas1" HorizontalAlignment="Left" Height="269" Margin="49,146,0,0" VerticalAlignment="Top" Width="720" Background="White"/>
-        <Button x:Name="Clean" Content="Очистить" HorizontalAlignment="Left" Margin="104,10,0,0" VerticalAlignment="Top" Background="#FFDDDDDD" Height="32" Width="85" Click="Clean_Click" FontSize="16"/>
-        <Button x:Name="exit" Content="Выход" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="32" Width="53" Click="exit_Click" FontSize="16"/>
-        <Button x:Name="save" Content="Сохранить" HorizontalAlignment="Left" Margin="104,77,0,0" VerticalAlignment="Top" Height="32" Width="85" FontSize="16" Click="save_Click"/>
-        <Slider x:Name="sld_RedColor" Background="Red" Minimum="0" Maximum="255" HorizontalAlignment="Left" Margin="521,3,0,0" VerticalAlignment="Top" Width="269" ValueChanged="sld_Color_ValueChanged"/>
-        <Slider x:Name="sld_GreenColor" Background="Green" Minimum="0" Maximum="255" HorizontalAlignment="Left" Margin="521,21,0,0" VerticalAlignment="Top" Width="269" ValueChanged="sld_Color_ValueChanged"/>
-        <Slider x:Name="sld_BlueColor" Background="Blue" Minimum="0" Maximum="255" HorizontalAlignment="Left" Margin="521,39,0,0" VerticalAlignment="Top" Width="269" ValueChanged="sld_Color_ValueChanged"/>
+        <InkCanvas x:Name="inkCanvas1" HorizontalAlignment="Left" Height="269" Margin="49,146,0,0" VerticalAlignment="Top" Width="720" Background="White" Grid.ColumnSpan="3">
+            <InkCanvas HorizontalAlignment="Center" Height="250" VerticalAlignment="Center" Width="350"/>
+        </InkCanvas>
+        <Button x:Name="exit" Content="Выход" HorizontalAlignment="Center" Margin="0,39,0,0" VerticalAlignment="Top" Height="32" Width="53" Click="exit_Click" FontSize="16"/>
+        <Button x:Name="save" Content="Сохранить" HorizontalAlignment="Left" Margin="15,75,0,0" VerticalAlignment="Top" Height="32" Width="85" FontSize="16" Click="save_Click" Grid.ColumnSpan="2"/>
+        <Slider x:Name="sld_RedColor" Background="Red" Minimum="0" Maximum="255" HorizontalAlignment="Left" Margin="240,3,0,0" VerticalAlignment="Top" Width="269" ValueChanged="sld_Color_ValueChanged" Grid.Column="2"/>
+        <Slider x:Name="sld_GreenColor" Background="Green" Minimum="0" Maximum="255" HorizontalAlignment="Left" Margin="240,21,0,0" VerticalAlignment="Top" Width="269" ValueChanged="sld_Color_ValueChanged" Grid.Column="2"/>
+        <Slider x:Name="sld_BlueColor" Background="Blue" Minimum="0" Maximum="255" HorizontalAlignment="Left" Margin="240,39,0,0" VerticalAlignment="Top" Width="269" ValueChanged="sld_Color_ValueChanged" Grid.Column="2"/>
 
-        <Label x:Name="lbl1" Content="Выбранный цвет" HorizontalAlignment="Left" Margin="400,12,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="Select" Content="Выделить" HorizontalAlignment="Left" Margin="193,77,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="33" Width="85" Click="Select_Click" FontSize="16">
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="-0.594"/>
-                    <RotateTransform Angle="0.34"/>
-                    <TranslateTransform X="0.002" Y="-0.28"/>
-                </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
-        <Button x:Name="text" Content="Добавить текст" HorizontalAlignment="Left" Margin="194,10,0,0" VerticalAlignment="Top" Height="32" Width="127" FontSize="16" Click="text_Click"/>
-        <Button Content="" HorizontalAlignment="Left" Margin="522,63,0,0" VerticalAlignment="Top" Width="24" Height="24" Background="Blue" Click="Button_Click"/>
-        <Button Content="" HorizontalAlignment="Left" Margin="594,63,0,0" VerticalAlignment="Top" Width="24" Height="24" Background="#FF7F7F7F" Click="Button_Click_3"/>
-        <Button Content="" HorizontalAlignment="Left" Margin="570,63,0,0" VerticalAlignment="Top" Width="24" Height="24" Background="Red" Click="Button_Click_2"/>
-        <Button Content="" HorizontalAlignment="Left" Margin="546,63,0,0" VerticalAlignment="Top" Width="24" Height="24" Background="Green" Click="Button_Click_1"/>
-        <Button Content="" HorizontalAlignment="Left" Margin="570,87,0,0" VerticalAlignment="Top" Width="24" Height="24" Background="#FFB97A57" Click="Button_Click_10" RenderTransformOrigin="0.5,0.5">
+        <Label x:Name="lbl1" Content="Цвет" HorizontalAlignment="Left" Margin="260,71,0,0" VerticalAlignment="Top" Height="26" Width="36" Grid.Column="2"/>
+        <Button Content="" HorizontalAlignment="Left" Margin="317,59,0,0" VerticalAlignment="Top" Width="24" Height="24" Background="Blue" Click="Button_Click" Grid.Column="2"/>
+        <Button Content="" HorizontalAlignment="Left" Margin="389,59,0,0" VerticalAlignment="Top" Width="24" Height="24" Background="#FF7F7F7F" Click="Button_Click_3" Grid.Column="2"/>
+        <Button Content="" HorizontalAlignment="Left" Margin="365,59,0,0" VerticalAlignment="Top" Width="24" Height="24" Background="Red" Click="Button_Click_2" Grid.Column="2"/>
+        <Button Content="" HorizontalAlignment="Left" Margin="341,59,0,0" VerticalAlignment="Top" Width="24" Height="24" Background="Green" Click="Button_Click_1" Grid.Column="2"/>
+        <Button Content="" HorizontalAlignment="Left" Margin="365,83,0,0" VerticalAlignment="Top" Width="24" Height="24" Background="#FFB97A57" Click="Button_Click_10" RenderTransformOrigin="0.5,0.5" Grid.Column="2">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -49,7 +44,7 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button Content="" HorizontalAlignment="Left" Margin="546,87,0,0" VerticalAlignment="Top" Width="24" Height="24" Background="#FFFFAEC9" Click="Button_Click_9" RenderTransformOrigin="0.5,0.5">
+        <Button Content="" HorizontalAlignment="Left" Margin="341,83,0,0" VerticalAlignment="Top" Width="24" Height="24" Background="#FFFFAEC9" Click="Button_Click_9" RenderTransformOrigin="0.5,0.5" Grid.Column="2">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -59,25 +54,48 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button Content="" HorizontalAlignment="Left" Margin="522,87,0,0" VerticalAlignment="Top" Width="24" Height="24" Background="#FFF0F0F0" Click="Button_Click_8"/>
-        <Button Content="" HorizontalAlignment="Left" Margin="594,87,0,0" VerticalAlignment="Top" Width="24" Height="24" Background="#FFFFC90E" Click="Button_Click_11"/>
-        <Button Content="" HorizontalAlignment="Left" Margin="618,63,0,0" VerticalAlignment="Top" Width="24" Height="24" Background="Black" Click="Button_Click_4"/>
-        <Button Content="" HorizontalAlignment="Left" Margin="690,63,0,0" VerticalAlignment="Top" Width="24" Height="24" Background="#FFA349A4" Click="Button_Click_7"/>
-        <Button Content="" HorizontalAlignment="Left" Margin="666,63,0,0" VerticalAlignment="Top" Width="24" Height="24" Background="#FFFFF200" Click="Button_Click_6"/>
-        <Button Content="" HorizontalAlignment="Left" Margin="642,63,0,0" VerticalAlignment="Top" Width="24" Height="24" Background="#FFFF7F27" Click="Button_Click_5"/>
-        <Button Content="" HorizontalAlignment="Left" Margin="666,87,0,0" VerticalAlignment="Top" Width="24" Height="24" Background="#FF7092BE" Click="Button_Click_14"/>
-        <Button Content="" HorizontalAlignment="Left" Margin="642,87,0,0" VerticalAlignment="Top" Width="24" Height="24" Background="#FF99D9EA" Click="Button_Click_13"/>
-        <Button Content="" HorizontalAlignment="Left" Margin="618,87,0,0" VerticalAlignment="Top" Width="24" Height="24" Background="#FFB5E61D" Click="Button_Click_12"/>
-        <Button Content="" HorizontalAlignment="Left" Margin="690,87,0,0" VerticalAlignment="Top" Width="24" Height="24" Background="#FFC8BFE7" Click="Button_Click_15"/>
-        <Slider x:Name="sld_brush" Minimum="0" Maximum="255" HorizontalAlignment="Stretch" Margin="521,120,0,296" Width="269" ValueChanged="sld_brush" VerticalAlignment="Bottom">
-            <Slider.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0.167"/>
-                    <GradientStop Color="White" Offset="0.78"/>
-                </LinearGradientBrush>
-            </Slider.Background>
-        </Slider>
-        <Label Content="Выбрать размер кисти " HorizontalAlignment="Left" Margin="384,116,0,0" VerticalAlignment="Top" Width="142"/>
+        <Button Content="" HorizontalAlignment="Left" Margin="317,83,0,0" VerticalAlignment="Top" Width="24" Height="24" Background="#FFF0F0F0" Click="Button_Click_8" Grid.Column="2"/>
+        <Button Content="" HorizontalAlignment="Left" Margin="389,83,0,0" VerticalAlignment="Top" Width="24" Height="24" Background="#FFFFC90E" Click="Button_Click_11" Grid.Column="2"/>
+        <Button Content="" HorizontalAlignment="Left" Margin="413,59,0,0" VerticalAlignment="Top" Width="24" Height="24" Background="Black" Click="Button_Click_4" Grid.Column="2"/>
+        <Button Content="" HorizontalAlignment="Left" Margin="485,59,0,0" VerticalAlignment="Top" Width="24" Height="24" Background="#FFA349A4" Click="Button_Click_7" Grid.Column="2"/>
+        <Button Content="" HorizontalAlignment="Left" Margin="461,59,0,0" VerticalAlignment="Top" Width="24" Height="24" Background="#FFFFF200" Click="Button_Click_6" Grid.Column="2"/>
+        <Button Content="" HorizontalAlignment="Left" Margin="437,59,0,0" VerticalAlignment="Top" Width="24" Height="24" Background="#FFFF7F27" Click="Button_Click_5" Grid.Column="2"/>
+        <Button Content="" HorizontalAlignment="Left" Margin="461,83,0,0" VerticalAlignment="Top" Width="24" Height="24" Background="#FF7092BE" Click="Button_Click_14" Grid.Column="2"/>
+        <Button Content="" HorizontalAlignment="Left" Margin="437,83,0,0" VerticalAlignment="Top" Width="24" Height="24" Background="#FF99D9EA" Click="Button_Click_13" Grid.Column="2"/>
+        <Button Content="" HorizontalAlignment="Left" Margin="413,83,0,0" VerticalAlignment="Top" Width="24" Height="24" Background="#FFB5E61D" Click="Button_Click_12" Grid.Column="2"/>
+        <Button Content="" HorizontalAlignment="Left" Margin="485,83,0,0" VerticalAlignment="Top" Width="24" Height="24" Background="#FFC8BFE7" Click="Button_Click_15" Grid.Column="2"/>
+        <Label Content="Выбрать размер кисти " HorizontalAlignment="Left" Margin="60,3,0,0" VerticalAlignment="Top" Width="169" Grid.Column="2" FontSize="16"/>
+        <Menu Height="21" VerticalAlignment="Top" Grid.ColumnSpan="2" Margin="0,0,147,0">
+            <MenuItem Header="File">
+                <MenuItem Header="New Project" ></MenuItem>
+                <MenuItem Header="Open Project" ></MenuItem>
+                <Separator />
+                <MenuItem Header="Exit" ></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Инструменты" Width="87">
+                <MenuItem Header="Кисть"  Click="MenuItem_Click" ></MenuItem>
+                <MenuItem Header="Очистить" Click="Очистить_Click"></MenuItem>
+                <MenuItem Header="Добавить текст" Click="Добавитьтекст_Click"></MenuItem>
+                <MenuItem Header="Выделить" Click="Выделить_Click"></MenuItem>
+            </MenuItem>
+
+
+        </Menu>
+        <ComboBox Name="items1" HorizontalAlignment="Left" Margin="72,3,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1">
+            <ComboBoxItem>Кисть</ComboBoxItem>
+            <ComboBoxItem>Очистить</ComboBoxItem>
+            <ComboBoxItem>Добавить текст</ComboBoxItem>
+            <ComboBoxItem>Выделить</ComboBoxItem>
+        </ComboBox>
+        <RadioButton Content="5" HorizontalAlignment="Left" Margin="60,33,0,0" VerticalAlignment="Top" Grid.Column="2" FontSize="16"/>
+        <RadioButton Content="10" HorizontalAlignment="Left" Margin="60,51,0,0" VerticalAlignment="Top" Grid.Column="2" FontSize="16"/>
+        <RadioButton Content="15" HorizontalAlignment="Left" Margin="60,71,0,0" VerticalAlignment="Top" Grid.Column="2" FontSize="16"/>
+        <RadioButton Content="20" HorizontalAlignment="Left" Margin="60,87,0,0" VerticalAlignment="Top" Grid.Column="2" FontSize="16"/>
+        <Button x:Name="seleckt" Content="Выбрать инструмент" HorizontalAlignment="Left" Margin="79,33,0,0" VerticalAlignment="Top" Width="119" Click="seleckt_Click" Grid.Column="1"/>
+        <ComboBox HorizontalAlignment="Left" Margin="39,91,0,0" VerticalAlignment="Top" Width="97" IsEnabled="False" Grid.Column="1"/>
+        <Label Content="Выбрать шрифт" HorizontalAlignment="Left" Margin="39,65,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <ComboBox HorizontalAlignment="Left" Margin="141,91,0,0" VerticalAlignment="Top" Width="33" IsEditable="True" IsEnabled="False" Grid.Column="1"/>
+        <Label Content="Выбрать размер" HorizontalAlignment="Left" Margin="136,66,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Column="1"/>
 
     </Grid>
 </Window>

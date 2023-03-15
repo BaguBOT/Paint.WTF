@@ -32,10 +32,7 @@ namespace Paint.WTF
             this.lbl1.Background = new SolidColorBrush(Color.FromRgb(mcolor.red, mcolor.green, mcolor.blue));
         }
 
-        private void Clean_Click(object sender, RoutedEventArgs e)
-        {
-            this.inkCanvas1.Strokes.Clear();
-        }
+       
 
         private void exit_Click(object sender, RoutedEventArgs e)
         {
@@ -101,29 +98,10 @@ namespace Paint.WTF
 
         {
 
-             this.inkCanvas1.DefaultDrawingAttributes.StylusTipTransform = Convert.ToByte(value);
         }
-        private void Select_Click(object sender, RoutedEventArgs e)
-        {
-            this.inkCanvas1.EditingMode = InkCanvasEditingMode.Select;
-        }
+       
 
-        private void text_Click(object sender, RoutedEventArgs e)
-        {
-            //Инициализация контрола tb типа TextBox
-            TextBox tb = new TextBox
-            {
-                Width = 100,
-                Height = 50,
-                BorderThickness = new Thickness(1),
-                BorderBrush = new SolidColorBrush(Color.FromRgb(5, 5, 5)),
-                Margin = new Thickness(20, 20, 0, 0)
-            };
-            //Добавление контрола tb
-            this.inkCanvas1.Children.Add(tb);
-            //Переключение фокуса на элемент, чтоб можно было сразу ввести текст с клавиатуры
-            tb.Focus();
-        }
+     
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -283,6 +261,63 @@ namespace Paint.WTF
             clr = Color.FromRgb(mcolor.red, mcolor.green, mcolor.blue);
             this.lbl1.Background = new SolidColorBrush(Color.FromRgb(mcolor.red, mcolor.green, mcolor.blue));
             this.inkCanvas1.DefaultDrawingAttributes.Color = clr;
+        }
+        private void Кисть_Click(object sender, RoutedEventArgs e)
+        {
+            MenuItem menuItem = (MenuItem)sender;
+            MessageBox.Show(menuItem.Header.ToString());
+        }
+        private void Очистить_Click(object sender, RoutedEventArgs e)
+        {
+            MenuItem menuItem = (MenuItem)sender;
+            MessageBox.Show(menuItem.Header.ToString());
+        }
+        private void Добавитьтекст_Click(object sender, RoutedEventArgs e)
+        {
+            MenuItem menuItem = (MenuItem)sender;
+            MessageBox.Show(menuItem.Header.ToString());
+        }
+        private void Выделить_Click(object sender, RoutedEventArgs e)
+        {
+            MenuItem menuItem = (MenuItem)sender;
+            MessageBox.Show(menuItem.Header.ToString());
+        }
+
+
+
+
+        private void seleckt_Click(object sender, RoutedEventArgs e)
+        {
+            if (items1.SelectedIndex == 0)
+            {
+
+            }
+            if (items1.SelectedIndex == 1)
+            {
+                this.inkCanvas1.Strokes.Clear();
+            }
+            if (items1.SelectedIndex == 2)
+            {
+                //ComboBox.razmer.e
+
+                //Инициализация контрола tb типа TextBox
+                TextBox tb = new TextBox
+                {
+                    Width = 100,
+                    Height = 50,
+                    BorderThickness = new Thickness(1),
+                    BorderBrush = new SolidColorBrush(Color.FromRgb(5, 5, 5)),
+                    Margin = new Thickness(20, 20, 0, 0)
+                };
+                //Добавление контрола tb
+                this.inkCanvas1.Children.Add(tb);
+                //Переключение фокуса на элемент, чтоб можно было сразу ввести текст с клавиатуры
+                tb.Focus();
+            }
+            if (items1.SelectedIndex == 3)
+            {
+                this.inkCanvas1.EditingMode = InkCanvasEditingMode.Select;
+            }
         }
     }
 }
