@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Globalization;
+using System.IO;
 
 namespace Paint.WTF
 {
@@ -43,21 +44,21 @@ namespace Paint.WTF
 
         private void save_Click(object sender, RoutedEventArgs e)
         {
-            //this.inkCanvas1.EditingMode = InkCanvasEditingMode.None;
-            //string imgPath = @"D:\ИСПРО31\file.gif"; //Куда сохраняется файл
-            //MemoryStream ms = new MemoryStream();  //Поток памяти :)
-            //FileStream fs = new FileStream(imgPath, FileMode.Create); //  Поток файла :)
+            this.inkCanvas1.EditingMode = InkCanvasEditingMode.None;
+            string imgPath = @"C:\"; 
+            MemoryStream ms = new MemoryStream();  
+            FileStream fs = new FileStream(imgPath, FileMode.Create);
 
-            ////rtb - объект класса RenderTargetBitmap
-            //RenderTargetBitmap rtb = new RenderTargetBitmap((int)inkCanvas1.Width, (int)inkCanvas1.Height, 96, 96, PixelFormats.Default);
-            //rtb.Render(inkCanvas1);
+            //rtb - объект класса RenderTargetBitmap
+            RenderTargetBitmap rtb = new RenderTargetBitmap((int)inkCanvas1.Width, (int)inkCanvas1.Height, 96, 96, PixelFormats.Default);
+            rtb.Render(inkCanvas1);
 
-            //GifBitmapEncoder gifEnc = new GifBitmapEncoder(); //сохраняем в формате GIF
-            //gifEnc.Frames.Add(BitmapFrame.Create(rtb));
-            //gifEnc.Save(fs);
-            //fs.Close();
-            //this.inkCanvas1.EditingMode = InkCanvasEditingMode.Ink;
-            //MessageBox.Show("Файл сохранен, " + imgPath); //Для информации
+            GifBitmapEncoder gifEnc = new GifBitmapEncoder(); 
+            gifEnc.Frames.Add(BitmapFrame.Create(rtb));
+            gifEnc.Save(fs);
+            fs.Close();
+            this.inkCanvas1.EditingMode = InkCanvasEditingMode.Ink;
+            MessageBox.Show("Файл сохранен, " + imgPath); //Для информации
         }
         public class ColorRGB
         {
@@ -96,6 +97,12 @@ namespace Paint.WTF
             this.inkCanvas1.DefaultDrawingAttributes.Color = clr;
         }
 
+        private void sld_brush(object sender, RoutedPropertyChangedEventArgs<double> e)
+
+        {
+
+             this.inkCanvas1.DefaultDrawingAttributes.StylusTipTransform = Convert.ToByte(value);
+        }
         private void Select_Click(object sender, RoutedEventArgs e)
         {
             this.inkCanvas1.EditingMode = InkCanvasEditingMode.Select;

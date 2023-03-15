@@ -15,7 +15,7 @@
                 <GradientStop Color="#FF244BE8" Offset="0.823"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <InkCanvas x:Name="inkCanvas1" HorizontalAlignment="Center" Height="269" Margin="0,125,0,0" VerticalAlignment="Top" Width="720"/>
+        <InkCanvas x:Name="inkCanvas1" HorizontalAlignment="Left" Height="269" Margin="49,146,0,0" VerticalAlignment="Top" Width="720" Background="White"/>
         <Button x:Name="Clean" Content="Очистить" HorizontalAlignment="Left" Margin="104,10,0,0" VerticalAlignment="Top" Background="#FFDDDDDD" Height="32" Width="85" Click="Clean_Click" FontSize="16"/>
         <Button x:Name="exit" Content="Выход" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="32" Width="53" Click="exit_Click" FontSize="16"/>
         <Button x:Name="save" Content="Сохранить" HorizontalAlignment="Left" Margin="104,77,0,0" VerticalAlignment="Top" Height="32" Width="85" FontSize="16" Click="save_Click"/>
@@ -23,7 +23,7 @@
         <Slider x:Name="sld_GreenColor" Background="Green" Minimum="0" Maximum="255" HorizontalAlignment="Left" Margin="521,21,0,0" VerticalAlignment="Top" Width="269" ValueChanged="sld_Color_ValueChanged"/>
         <Slider x:Name="sld_BlueColor" Background="Blue" Minimum="0" Maximum="255" HorizontalAlignment="Left" Margin="521,39,0,0" VerticalAlignment="Top" Width="269" ValueChanged="sld_Color_ValueChanged"/>
 
-        <Label x:Name="lbl1" Content="Выбранный цвет" HorizontalAlignment="Left" Margin="400,24,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbl1" Content="Выбранный цвет" HorizontalAlignment="Left" Margin="400,12,0,0" VerticalAlignment="Top"/>
         <Button x:Name="Select" Content="Выделить" HorizontalAlignment="Left" Margin="193,77,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="33" Width="85" Click="Select_Click" FontSize="16">
             <Button.RenderTransform>
                 <TransformGroup>
@@ -69,6 +69,15 @@
         <Button Content="" HorizontalAlignment="Left" Margin="642,87,0,0" VerticalAlignment="Top" Width="24" Height="24" Background="#FF99D9EA" Click="Button_Click_13"/>
         <Button Content="" HorizontalAlignment="Left" Margin="618,87,0,0" VerticalAlignment="Top" Width="24" Height="24" Background="#FFB5E61D" Click="Button_Click_12"/>
         <Button Content="" HorizontalAlignment="Left" Margin="690,87,0,0" VerticalAlignment="Top" Width="24" Height="24" Background="#FFC8BFE7" Click="Button_Click_15"/>
+        <Slider x:Name="sld_brush" Minimum="0" Maximum="255" HorizontalAlignment="Stretch" Margin="521,120,0,296" Width="269" ValueChanged="sld_brush" VerticalAlignment="Bottom">
+            <Slider.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0.167"/>
+                    <GradientStop Color="White" Offset="0.78"/>
+                </LinearGradientBrush>
+            </Slider.Background>
+        </Slider>
+        <Label Content="Выбрать размер кисти " HorizontalAlignment="Left" Margin="384,116,0,0" VerticalAlignment="Top" Width="142"/>
 
     </Grid>
 </Window>
